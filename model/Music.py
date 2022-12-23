@@ -5,14 +5,11 @@ class Music():
     artist: str = None
     published_at: date = None
 
-    def create_object():
+    def create(self, name: str, artist: str, published_at: str) -> object:
         pass
 
-    def get_all():
+    def all(self) -> list:
         pass
 
-    def delete_object():
-        pass
-
-    def get_object():
+    def get(self, name: str) -> object:
         pass
