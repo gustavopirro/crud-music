@@ -1,13 +1,9 @@
-from model import Music
-
 class Database():
+    music_list: list = []
 
-    def __init__(self) -> None:
-        self.music_list: list = []
-
-    def add(self, music: Music) -> object:
-        self.music_list.append(music)
-        return music
+    def add(self, music_object) -> object:
+        self.music_list.append(music_object)
+        return music_object
 
     def retrieve(self, music_name: str) -> object:
         for music in self.music_list:

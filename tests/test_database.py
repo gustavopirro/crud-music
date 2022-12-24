@@ -17,8 +17,8 @@ class DatabaseTestCase(TestCase):
 
     def test_create_new_db_registry(self):
         new_music = self.test_database.add(self.music_mock)
-        self.assertEqual(len(self.test_database.music_list) == 1)
-        self.assertEqual(new_music.get('name') == 'Test Music')
+        self.assertEqual(len(self.test_database.music_list), 1)
+        self.assertEqual(new_music.get('name'), 'Test Music')
     
     def test_retrieve_registry_from_db(self):
         self.test_database.add(self.music_mock)
@@ -33,8 +33,6 @@ class DatabaseTestCase(TestCase):
         self.assertEqual(music_obj['status'], 404)
     
     def test_get_music_db_list(self):
-        new_database = Database()
-        new_database.add(self.music_mock)
-        self.assertEqual(len(new_database.all()), 1)
-        new_database.add(self.music_mock)
-        self.assertEqual(len(new_database.all()), 2)
+        db_registry_count = len(self.test_database.all())
+        self.test_database.add(self.music_mock)
+        self.assertEqual(len(self.test_database.all()), db_registry_count + 1)
