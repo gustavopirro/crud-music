@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 from database.database import Database
 
 class Music():
@@ -22,3 +22,19 @@ class Music():
 
     def get(self, name: str) -> object:
         return Database().retrieve(name).get('data')
+
+    def filter_by_year(self, year: int) -> object:
+        try:
+            normalized_year = int(year)
+        except ValueError:
+            print('Ano invalido!')
+            return
+        filtered_list = []
+
+        for music in self.all():
+            music_publish_year = datetime.strptime(music['published_at'], '%d-%m-%Y').year
+            if music_publish_year == normalized_year:
+                filtered_list.append(music)
+        
+        return filtered_list
+

@@ -20,7 +20,9 @@ def search_music():
     return Music().get(music_name)
 
 def filter_musics_by_year():
-    pass
+    music_publish_date = input('Insira o ano da música:\n')
+    print('Resultados encontrados: \n')
+    return Music().filter_by_year(music_publish_date)
 
 def get_musics():
     return Music().all()

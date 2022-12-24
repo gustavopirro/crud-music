@@ -21,9 +21,7 @@ def handle_data(db_data, data_type):
     
     else:
         print('Ops! não foi possível realizar esta ação!')
-    
 
-    
 
 def run_cli():
     user_input_choice = None
